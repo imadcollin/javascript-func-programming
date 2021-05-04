@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/imadcollin/javascript-func-programming/issues"
   },
-  "homepage": "https://github.com/imadcollin/javascript-func-programming#readme"
+  "homepage": "https://github.com/imadcollin/javascript-func-programming#readme",
+  "dependencies": {
+    "underscore": "^1.13.1"
+  }
 }
