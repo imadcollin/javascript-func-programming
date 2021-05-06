@@ -52,3 +52,54 @@ function note(thing) {
 warn();
 
 note();
+
+/* Nth */
+console.log("*****************\n");
+function nth(a, index) {
+  if (!_.isNumber(index)) console.log("not number");
+  if (index < 0 || index > a.length - 1) console.log(" Out of the bound");
+  console.log(a[index]);
+}
+
+nth([1, 2, 3, 4, 5], 2);
+nth([1, 2, 3, 4, 5], "2");
+nth([1, 2, 3, 4, 5], 20);
+
+/**Sort */
+const s1 = [1, 2, 45, 6, 3, 7].sort(function (x, y) {
+  if (x > y) return 1;
+  if (x < y) return -1;
+  return 0;
+});
+console.log(s1);
+
+/****** Data as Abstraction  *******/
+function lameCVS(str) {
+  return _.reduce(
+    str.split("\n"),
+    function (table, row) {
+      table.push(
+        _.map(row.split(","), function (c) {
+          return c.trim();
+        })
+      );
+      return table;
+    },
+    []
+  );
+}
+const table = lameCVS("name, age, hair\nBob, 25, black\nAlice, 45, grey");
+console.log(table);
+
+function sortNames(table) {
+  return _.rest(_.map(table, _.first));
+}
+function sortAges(table) {
+  return _.rest(_.map(table, _.second));
+}
+
+const sortTableByNames = sortNames(table);
+console.log(sortTableByNames);
+
+const sortTableByAges = sortAges(table);
+console.log(sortTableByAges);
