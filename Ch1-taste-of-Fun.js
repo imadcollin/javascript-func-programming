@@ -82,3 +82,49 @@ for (var bottle = 15; bottle > 0; bottle--) {
 }
 
 console.log(lyrics);
+
+
+/**Metaprogramming */
+function Point2D(x,y){
+  this._x= x; 
+  this._y=y; 
+}
+
+ new Point2D(0,1); 
+
+
+function Point3D(x,y,z){
+  Point2D.call(this,x,y)
+  this._z=z; 
+}
+let point3D= new Point3D(1,2,3); 
+console.log(point3D)
+
+/**Applicative Programming */
+var nums = [1,2,3,4,5];
+
+function doubleAll(arr){
+  return _.map(arr,function(n){return n*2}); 
+}
+console.log(doubleAll(nums)); 
+
+function avg(arr){
+  let sum = _.reduce(arr, function(a,b){return a+b});
+  return sum/_.size(arr); 
+}
+
+console.log(avg(nums))
+
+function onlyEven(arr){
+  return _.filter(arr, function(n){
+    return (n%2)===0; 
+  })
+}
+
+function onlyOdds(arr){
+  return _.filter(arr,function(n){
+return (n%2!=0)
+  })
+}
+console.log(onlyEven(nums))
+console.log(onlyOdds(nums))
